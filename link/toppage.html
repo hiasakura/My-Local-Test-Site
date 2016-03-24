@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.optimizely.com/js/5332432140.js"></script>
+<title>Top</title>
+</head>
+<body>
+<div>
+	<input type="button" value="検索へ" onclick="move('event1')"><br>
+</div>
+
+<!-- SiteCatalyst code version: H.25.3.
+Copyright 1997-2009 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="js/AppMeasurement.js"></script>
+<script language="JavaScript" type="text/javascript"><!--
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+
+function search() {
+	document.location.href = "search.html";
+}
+
+function move(sc_ics) {
+	s.linkTrackVars='events';
+	s.linkTrackEvents=sc_ics;
+	s.events=sc_ics;
+	s.tl(this,'o',sc_ics,null, search());
+	return false;
+}
+
+
+s.pageName="top"
+s.referrer=""
+s.server=""
+s.channel=""
+s.pageType=""
+/* Conversion Variables */
+s.campaign=""
+s.state=""
+s.zip=""
+s.events=""
+s.products=""
+s.purchaseID=""
+s.eVar1=""
+s.eVar2=""
+s.eVar3=""
+s.eVar4=""
+s.eVar5=""
+s.eVar6=""
+s.eVar7=""
+s.eVar8=""
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<!-- End SiteCatalyst code version: H.20.3. -->
+</body>
+</html>

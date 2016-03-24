@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Video Media</title>
+</head>
+<body>
+<script language="JavaScript" type="text/javascript" src="js/old/s_code.js"></script>
+
+
+<video id="movie" width="640" height="360" preload controls name="AsakuraTestMovie">
+	<source src="video/bault.mp4" type="video/mp4">
+</video>
+
+    
+<script language="JavaScript" type="text/javascript"><!--
+
+s.pageName="HTM5 Movie Test"
+s.prop1="HTM5 Movie Test"
+s.eVar1="HTM5 Movie Test"
+var s_code=s.t();if(s_code)document.write(s_code)//-->   
+
+
+/***************** Media Module for HTML5 Start *****************/
+
+//Video Event Definition
+videoObj = document.getElementById("movie");
+videoObj.addEventListener("play",    videoHandler, false);
+videoObj.addEventListener("seeked",  videoHandler, false);
+videoObj.addEventListener("seeking", videoHandler, false);
+videoObj.addEventListener("pause",   videoHandler, false);
+videoObj.addEventListener("ended",   videoHandler, false);
+
+// Event Handling
+function videoHandler(e) {
+    var video = document.getElementsByTagName("video")[0];
+    var mediaName=document.getElementsByTagName("video")[0].getAttribute("name");
+    var mediaLength = video.duration;
+    var mediaPlayerName = "HTML5 Video";
+
+	var mediaOffset = video.currentTime > 0 ? Math.floor(video.currentTime) : 0;
+	// Start Play
+	if (e.type == "play") {
+		if (mediaOffset == 0) {
+			s.Media.open(mediaName, mediaLength, mediaPlayerName);
+			s.Media.play(mediaName, mediaOffset);
+		} else {
+			s.Media.play(mediaName, mediaOffset);
+		}
+	}
+	// Pause Play
+	if (e.type == "pause") {
+		s.Media.stop(mediaName, mediaOffset);
+	}
+	// Seek Start
+	if (e.type == "seeking") {
+		s.Media.stop(mediaName, mediaOffset);
+	}
+	// Seek End
+	if (e.type == "seeked") {
+		s.Media.play(mediaName, mediaOffset);
+	}
+	// Complete
+	if (e.type == "ended") {
+		s.Media.stop(mediaName, mediaOffset);
+		s.Media.close(mediaName);
+		mediaOffset = 0;
+	}
+};
+
+/***************** Media Module for HTML5 End *****************/
+</script>
+</body>
+</html>
