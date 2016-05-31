@@ -1,0 +1,28 @@
+<!doctype html>
+<html amp lang="en">
+<head><a href = "org/amp_analytics_iframe_example1.amp.html"></a>
+	<link rel="canonical" href="http://adobe.example.com/analytics_iframe_example1.html" />
+	<meta charset="utf-8">
+	<title>Adobe Analytics AMP IFrame Example</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+	<style>body {opacity: 0}</style><noscript><style>body {opacity: 1}</style></noscript>
+	<script async src="https://cdn.ampproject.org/v0.js"></script>
+	<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+</head>
+<body>
+  <amp-analytics type="adobeanalytics_nativeConfig">
+	<script type="application/json">
+	{
+		"requests": {
+			"base": "//",
+			"iframeMessage": "${base}/abc0001.html.xdomain.jp/amp/stats.html?campaign='new'&pageName='Adobe Analytics iframePing'&v1='page_load'"
+		},
+		"vars": {
+			"host": "abc0001.html.xdomain.jp"
+		}
+	}
+	</script>
+	</amp-analytics>
+	<h1>This is AMP Sample for "adobeanalytics_nativeConfig" template </h1>
+  </body>
+</html>

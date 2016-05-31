@@ -1,0 +1,45 @@
+<!doctype html>
+<html amp lang="en">
+<head>
+	<link rel="canonical" href="http://example.com/amp_analytics_example2.html" />
+	<meta charset="utf-8">
+	<title>Adobe Analytics Using amp-analytics tag</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+	<style>body {opacity: 0}</style><noscript><style>body {opacity: 1}</style></noscript>
+	<script async src="https://cdn.ampproject.org/v0.js"></script>
+	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+</head>
+<body>
+	<h1>This is AMP Sample for "adobeanalytics" template </h1>
+	<div id="test">
+		<button>Tracking a Click Event</button>
+	</div>
+  <amp-analytics type=adobeanalytics>
+  <script type="application/json">
+  {
+    "requests": {
+      "myClick": "${click}&v1=${eVar1}"
+    },
+    "vars": {
+      "host": "hirofumitestcompany.sc.omtrdc.net",
+      "reportSuites": "hiroasakamptest"
+    },
+    "triggers": {
+      "pageLoad": {
+        "on": "visible",
+        "request": "pageview"
+      },
+      "click": {
+        "on": "click",
+        "selector": "button",
+        "request": "myClick",
+        "vars": {
+          "eVar1": "button clicked"
+        }
+      }
+    }
+  }
+  </script>
+  </amp-analytics>
+  </body>
+</html>

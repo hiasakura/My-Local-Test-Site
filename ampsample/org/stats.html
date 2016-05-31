@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Stats Test</title>
+<script language="JavaScript" type="text/javascript" src="VisitorAPI.js"></script>
+<script language="JavaScript" type="text/javascript" src="AppMeasurement.js"></script>
+</head>
+<body>
+<script>
+var v_orgId = "D44CC6335538201A0A4C98A1@AdobeOrg";
+var s_account = "hiroasakamptest";
+var s_trackingServer = "hirofumitestcompany.sc.omtrdc.net";
+var s_visitorNamespace = "hirofumitestcompany";
+var visitor = Visitor.getInstance(v_orgId);
+visitor.trackingServer = s_trackingServer;
+var s = s_gi(s_account);
+s.account = s_account;
+s.trackingServer = s_trackingServer;
+s.visitorNamespace = s_visitorNamespace;
+s.visitor = visitor;
+s.pagename = s.Util.getQueryParam("pageName");
+s.eVar1=s.Util.getQueryParam("v1");
+s.campaign=s.Util.getQueryParam("campaign");
+s.pageURL=s.Util.getQueryParam("pageURL");
+s.t();
+</script>
+</body>
+</html>

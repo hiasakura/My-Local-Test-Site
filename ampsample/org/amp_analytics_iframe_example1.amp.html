@@ -1,0 +1,72 @@
+<!--
+  Copyright 2016 Adobe Systems Incorporated. All rights reserved.
+  This file is licensed to you under the Apache License, Version 2.0 (the "License"); 
+  you may not use this file except in compliance with the License. You may obtain a copy
+  of the License at http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software distributed under
+  the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS 
+  OF ANY KIND, either express or implied. See the License for the specific language
+  governing permissions and limitations under the License.
+-->
+<!doctype html>
+<html amp lang="en">
+<head>
+	<link rel="canonical" href="http://adobe.example.com/analytics_iframe_example1.html" />
+	<meta charset="utf-8">
+	<title>Adobe Analytics AMP IFrame Example</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+	<style>body {opacity: 0}</style><noscript><style>body {opacity: 1}</style></noscript>
+	<style amp-custom>
+	body {
+		font-family: sans-serif;
+		padding: 1em;
+	}
+	ul {
+		margin: .25em 0;
+	}
+	div#test {
+		margin-top: 30px;
+	}
+	</style>
+	<script async src="https://cdn.ampproject.org/v0.js"></script>
+	<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+</head>
+<body>
+  <amp-analytics type="adobeanalytics_nativeConfig">
+	<script type="application/json">
+	{
+		"requests": {
+			"base": "https://${host}",
+			"iframeMessage": "${base}/stats.html?campaign=${queryParam(campaign)}&pageURL=${ampdocUrl}"
+		},
+		"vars": {
+			"host": "example.publishersite.com"
+		},
+		"extraUrlParams": {
+			"pageName": "Adobe Analytics using amp-analytics iframePing",
+			"v1": "eVar1 test value"
+		}
+	}
+	</script>
+	</amp-analytics>
+	<h1>AMP Analytics iFrame Example</h1>
+	<div>
+		<div><strong>This example uses the &lt;amp-analytic&gt; tag with the iframePing transport. The advantages to this approach are:</strong></div>
+		<ul>
+			<li>Visitor/visit counts will be a lot closer to accurate.</li>
+			<li>Safer to put into an existing report suite.</li>
+			<li>Visitor ID Service is supported.</li>
+			<li>Can tie return visitors back to the original site, but you can't tie new visitors back to the original site.</li>
+			<li>Easier to implement.</li>
+			<li>Referring domain can be set</li>
+		</ul>
+		<div><strong>The disadvantages are:</strong></div>
+		<ul>
+			<li>You must name your request "iframeMessage"</li>
+			<li>Can only measure on page load event</li>
+			<li>You must host an analytics tracking page to be loaded in an iframe on a different subdomain than that of the AMP page</li>
+		</ul>
+		<div><br/><strong>*Note: Mixing this method with the amp_analytics non-iframe solutions produces unpredictable results</strong></div>
+	</div>
+  </body>
+</html>
